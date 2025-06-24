@@ -12,7 +12,7 @@ Route::group(['middleware' => 'guest'], function () {
     Volt::route('/login', 'login')->name('login');
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'userAccessLog']], function () {
     Route::get('/logout', LogoutController::class)->name('logout');
 
     Volt::route('/dashboard', 'dashboard')->name('dashboard');

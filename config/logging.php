@@ -51,6 +51,13 @@ return [
     */
 
     'channels' => [
+        'access' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/access/laravel.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
         'model' => [
             'driver' => 'daily',
             'path' => storage_path('logs/model/model.log'),
